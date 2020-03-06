@@ -1,12 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scripts/level.gd" type="Script" id=1]
-[ext_resource path="res://scenes/platform.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/brick.tscn" type="PackedScene" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+func _process(delta):
+	process_platform(delta)
+
+func process_platform(_delta):
+	var direction = 0
+	if Input.is_action_pressed(\"ui_left\"):
+		direction += -1
+	if Input.is_action_pressed(\"ui_right\"):
+		direction += 1
+	$Platform.direction = direction
+"
 
 [node name="Level" type="Node2D"]
-script = ExtResource( 1 )
+script = SubResource( 1 )
 
-[node name="Platform" parent="." instance=ExtResource( 2 )]
-
-[node name="Ball" parent="." instance=ExtResource( 3 )]
+[node name="Brick" parent="." instance=ExtResource( 2 )]
