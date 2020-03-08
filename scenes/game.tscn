@@ -18,5 +18,5 @@ position = Vector2( 832, 224 )
 position = Vector2( 928, 672 )
 
 [node name="Camera" type="Camera2D" parent="."]
-offset = Vector2( 1280, 720 )
+offset = Vector2( 720, 1280 )
 current = true
