@@ -1,15 +1,12 @@
 extends Node
 
-onready var viewport = get_viewport()
-onready var game_size = Vector2(
-	ProjectSettings.get_setting("display/window/size/width"),
-	ProjectSettings.get_setting("display/window/size/height"))
-
 func _ready():
-	viewport.connect("size_changed", self, "resize_window")
 	resize_window()
 
 func resize_window():
+	var game_size = Vector2(
+		ProjectSettings.get_setting("display/window/size/width"),
+		ProjectSettings.get_setting("display/window/size/height"))
 	var new_size = OS.get_window_size()
 	var scale_factor
 
@@ -20,7 +17,7 @@ func resize_window():
 		scale_factor = game_size.y/new_size.y
 		new_size = Vector2(new_size.x*scale_factor, game_size.y)
 	
-	viewport.set_size_override(true, new_size)
+	get_viewport().set_size_override(true, new_size)
 
 func _process(delta):
 	process_platform(delta)
