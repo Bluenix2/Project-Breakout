@@ -1,5 +1,5 @@
 extends KinematicBody2D
-class_name Player
+class_name Platform
 
 export (int) var speed
 
@@ -7,7 +7,5 @@ var velocity = Vector2()
 var direction = 0
 
 func _physics_process(delta):
-	if direction:
-		velocity.x = speed * direction
-	
+	velocity.x = speed * direction
 	velocity = move_and_slide(velocity)
