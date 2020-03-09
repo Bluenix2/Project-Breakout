@@ -9,13 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "RigidBody2D",
+"class": "Ball",
+"language": "GDScript",
+"path": "res://scripts/ball.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Brick",
+"language": "GDScript",
+"path": "res://scripts/brick.gd"
+}, {
 "base": "KinematicBody2D",
-"class": "Player",
+"class": "Platform",
 "language": "GDScript",
 "path": "res://scripts/platform.gd"
 } ]
 _global_script_class_icons={
-"Player": ""
+"Ball": "",
+"Brick": "",
+"Platform": ""
 }
 
 [application]
