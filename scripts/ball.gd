@@ -18,4 +18,4 @@ func _on_collision(body):
 			body.position.direction_to(position)*linear_velocity.length())
 	
 	if body is Brick:
-		body.collided()
+		body.collided(get_parent())

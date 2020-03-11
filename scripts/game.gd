@@ -1,5 +1,7 @@
 extends Node
 
+var points = 0 setget set_points, get_points
+
 func _ready():
 	resize_window()
 
@@ -18,6 +20,12 @@ func resize_window():
 		new_size = Vector2(new_size.x*scale_factor, game_size.y)
 	
 	get_viewport().set_size_override(true, new_size)
+
+func set_points(value):
+	points = value
+
+func get_points():
+	return points
 
 func _process(delta):
 	process_platform(delta)
