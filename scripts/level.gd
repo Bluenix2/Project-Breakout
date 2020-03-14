@@ -18,16 +18,12 @@ const levels = [
 	],
 ]
 
-func _ready():
-	build(0)
-
 func build(id):
-	var level = levels[id]
-	for ri in min(level.size(), 6):
-		var row = level[ri]
-		for bi in min(row.size(), 6):
-			if row[bi]:
-				var brick = brick_scn.instance()
-				brick.set_position(Vector2(h_margin + (h_spacing*(bi)), v_margin + (v_spacing*(ri))))
-				print(brick.position)
-				add_child(brick)
+	for ri in min(levels[id].size(), 6):
+		for bi in min(levels[id][ri].size(), 6):
+			if levels[id][ri][bi]: create_brick(ri, bi)
+
+func create_brick(ri, bi):
+	var brick = brick_scn.instance()
+	brick.set_position(Vector2(h_margin + h_spacing*bi, v_margin + v_spacing*ri))
+	add_child(brick)

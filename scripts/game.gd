@@ -3,6 +3,7 @@ extends Node
 var points = 0 setget set_points, get_points
 
 func _ready():
+	$Level.build(0)
 	resize_window()
 
 func resize_window():
