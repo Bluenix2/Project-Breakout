@@ -15,11 +15,16 @@ const levels = [
 		[1, 1, 1, 1, 1, 1],
 		[1, 0, 1, 1, 0, 1],
 		[1, 1, 1, 1, 1, 1],
+		[1, 1, 1, 1, 1, 1],
+		[1, 0, 1, 1, 0, 1],
+		[1, 1, 1, 1, 1, 1],
+		[1, 0, 1, 1, 0, 1],
+		[1, 1, 1, 1, 1, 1],
 	],
 ]
 
 func build(id):
-	for ri in min(levels[id].size(), 6):
+	for ri in min(levels[id].size(), 10):
 		for bi in min(levels[id][ri].size(), 6):
 			if levels[id][ri][bi]: create_brick(ri, bi)
 
