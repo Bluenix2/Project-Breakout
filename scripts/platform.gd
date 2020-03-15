@@ -4,8 +4,7 @@ class_name Platform
 export (int) var speed
 
 var velocity = Vector2()
-var direction = 0
 
 func _physics_process(delta):
-	velocity.x = speed * direction
-	velocity = move_and_slide(velocity)
+	move_and_collide(Vector2(velocity.x, 0))
+	velocity = Vector2(0, 0)
