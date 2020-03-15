@@ -35,20 +35,15 @@ script = ExtResource( 6 )
 offset = Vector2( 720, 1280 )
 current = true
 
-[node name="Score" type="CenterContainer" parent="."]
+[node name="Score" type="Label" parent="."]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -1536.0
-margin_right = 0.00012207
+text = "0"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Label" type="Label" parent="Score"]
-margin_left = 716.0
-margin_top = 761.0
-margin_right = 724.0
-margin_bottom = 775.0
-text = "0"
 [connection signal="body_entered" from="Ball" to="Ball" method="_on_collision"]
