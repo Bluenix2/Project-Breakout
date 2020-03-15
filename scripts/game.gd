@@ -24,6 +24,7 @@ func resize_window():
 
 func set_points(value):
 	points = value
+	$Score/Label.text = str(points)
 
 func get_points():
 	return points
