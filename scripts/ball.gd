@@ -16,6 +16,7 @@ func _on_collision(body):
 	if body is Platform:
 		set_linear_velocity(
 			body.position.direction_to(position)*linear_velocity.length())
+		get_parent().calculate_levelup()
 	
 	if body is Brick:
 		body.collided(get_parent())

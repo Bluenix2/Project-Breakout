@@ -27,6 +27,8 @@ polygon = PoolVector2Array( 60, 2760, 60, 80, 1380, 80, 1380, 2760, 1520, 2760, 
 texture = ExtResource( 5 )
 offset = Vector2( 720, 1280 )
 
+[node name="Bricks" type="Node" parent="Level"]
+
 [node name="Score" type="Label" parent="Level"]
 margin_top = 1024.0
 margin_right = 1440.0
