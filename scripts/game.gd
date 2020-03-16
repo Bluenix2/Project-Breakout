@@ -1,9 +1,6 @@
 extends Node
 
-var points = 0 setget set_points, get_points
-
 func _ready():
-	$Level.build(0)
 	resize_window()
 
 func resize_window():
@@ -21,14 +18,3 @@ func resize_window():
 		new_size = Vector2(new_size.x*scale_factor, game_size.y)
 	
 	get_viewport().set_size_override(true, new_size)
-
-func set_points(value):
-	points = value
-	$Score.text = str(points)
-
-func get_points():
-	return points
-
-func _unhandled_input(event):
-	if event is InputEventScreenDrag:
-		$Platform.velocity = event.relative

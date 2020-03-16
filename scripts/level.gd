@@ -23,6 +23,20 @@ const levels = [
 	],
 ]
 
+var points = 0 setget set_points
+var level = 0 setget set_level
+
+func set_points(value):
+	points = value
+	$Score.text = str(points)
+
+func set_level(value):
+	level = value
+	build(level)
+
+func _ready():
+	build(0)
+
 func build(id):
 	for ri in min(levels[id].size(), 10):
 		for bi in min(levels[id][ri].size(), 6):
@@ -32,3 +46,7 @@ func create_brick(ri, bi):
 	var brick = brick_scn.instance()
 	brick.set_position(Vector2(h_margin + h_spacing*bi, v_margin + v_spacing*ri))
 	add_child(brick)
+
+func _unhandled_input(event):
+	if event is InputEventScreenDrag:
+		$Platform.velocity = event.relative

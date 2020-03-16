@@ -15,20 +15,22 @@ font_data = ExtResource( 7 )
 [node name="Game" type="Node"]
 script = ExtResource( 4 )
 
-[node name="Walls" type="StaticBody2D" parent="."]
+[node name="Level" type="Node2D" parent="."]
+script = ExtResource( 1 )
 
-[node name="CollisionPolygon" type="CollisionPolygon2D" parent="Walls"]
+[node name="Walls" type="StaticBody2D" parent="Level"]
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="Level/Walls"]
 polygon = PoolVector2Array( 60, 2760, 60, 80, 1380, 80, 1380, 2760, 1520, 2760, 1520, -200, -80, -200, -80, 2760 )
 
-[node name="Sprite" type="Sprite" parent="Walls"]
+[node name="Sprite" type="Sprite" parent="Level/Walls"]
 texture = ExtResource( 5 )
 offset = Vector2( 720, 1280 )
 
-[node name="Score" type="Label" parent="."]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -1536.0
+[node name="Score" type="Label" parent="Level"]
+margin_top = 1024.0
+margin_right = 1440.0
+margin_bottom = 2560.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.0980392, 0.176471, 0.631373, 1 )
 text = "0"
@@ -38,13 +40,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Level" type="Node2D" parent="."]
-script = ExtResource( 1 )
-
-[node name="Platform" parent="." instance=ExtResource( 3 )]
+[node name="Platform" parent="Level" instance=ExtResource( 3 )]
 position = Vector2( 736, 2304 )
 
-[node name="Ball" parent="." instance=ExtResource( 2 )]
+[node name="Ball" parent="Level" instance=ExtResource( 2 )]
 position = Vector2( 736, 2208 )
 contacts_reported = 1
 contact_monitor = true
@@ -53,4 +52,4 @@ script = ExtResource( 6 )
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2( 720, 1280 )
 current = true
-[connection signal="body_entered" from="Ball" to="Ball" method="_on_collision"]
+[connection signal="body_entered" from="Level/Ball" to="Level/Ball" method="_on_collision"]
