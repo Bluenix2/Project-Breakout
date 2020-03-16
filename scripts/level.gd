@@ -34,9 +34,6 @@ func set_level(value):
 	level = value
 	build(level)
 
-func _ready():
-	build(0)
-
 func build(id):
 	for ri in min(levels[id].size(), 10):
 		for bi in min(levels[id][ri].size(), 6):
