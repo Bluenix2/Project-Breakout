@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ball.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/background.png" type="Texture" id=5]
 [ext_resource path="res://scripts/ball.gd" type="Script" id=6]
 [ext_resource path="res://fonts/ubuntu.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/border.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 250
@@ -23,11 +24,9 @@ script = ExtResource( 1 )
 [node name="CollisionPolygon" type="CollisionPolygon2D" parent="Level/Walls"]
 polygon = PoolVector2Array( 60, 2760, 60, 80, 1380, 80, 1380, 2760, 1520, 2760, 1520, -200, -80, -200, -80, 2760 )
 
-[node name="Sprite" type="Sprite" parent="Level/Walls"]
+[node name="BackgroundSprite" type="Sprite" parent="Level/Walls"]
 texture = ExtResource( 5 )
 offset = Vector2( 720, 1280 )
-
-[node name="Bricks" type="Node" parent="Level"]
 
 [node name="Score" type="Label" parent="Level"]
 margin_top = 1024.0
@@ -42,6 +41,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Bricks" type="Node" parent="Level"]
+
 [node name="Platform" parent="Level" instance=ExtResource( 3 )]
 position = Vector2( 736, 2304 )
 
@@ -50,6 +51,10 @@ position = Vector2( 736, 2208 )
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 6 )
+
+[node name="BorderSprite" type="Sprite" parent="Level"]
+texture = ExtResource( 8 )
+offset = Vector2( 720, 1280 )
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2( 720, 1280 )
