@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/ball.png" type="Texture" id=1]
+[ext_resource path="res://scripts/ball.gd" type="Script" id=2]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -16,6 +17,9 @@ polygon = PoolVector2Array( 48, 13, 50, 0, 48, -13, 43, -25, 36, -35, 25, -43, 1
 mode = 2
 physics_material_override = SubResource( 1 )
 custom_integrator = true
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
