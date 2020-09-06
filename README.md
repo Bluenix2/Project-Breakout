@@ -1,2 +1,2 @@
 # Project-Breakout
-I don't know ¯\_(ツ)_/¯
+A simple Breakout/Brick breaker clone made in Godot with GDScript
